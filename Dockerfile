@@ -1,5 +1,5 @@
-FROM node:7.8.0
+FROM node:10.15.3
 WORKDIR /opt
-COPY ./ /opt
+ADD . /opt
 RUN npm install
 ENTRYPOINT npm run start
