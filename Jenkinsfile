@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                   sh 'docker build -t hedg09/jenkins_cicd_test .'
-                  echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin docker.io
+                  sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin docker.io'
                   sh 'docker push hedg09/jenkins_cicd_test'
                   sh 'docker logout'
                 }
